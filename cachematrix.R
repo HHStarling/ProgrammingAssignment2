@@ -3,6 +3,15 @@
 ## the inverse of a matrix.
 ## programmer: HHStarling 20150914
 
+## TO USE THE FUNCTIONS:
+## 1.source this file in working directory
+## 2.create matrix and assign to list of functions in makeCacheMatrix
+## my_matrix <- makeCacheMatrix (matrix(1:4, nrow=2, ncol=2))
+## 3.then solve for inverse matrix using cacheSolve
+## cacheSolve(my_matrix)
+
+## *****Functions below *****
+
 ## makeCacheMatrix creates a special "matrix" object that can cache its inverse matrix
 ## last updated: 20150914
 makeCacheMatrix <- function(x = matrix()) {
@@ -10,8 +19,8 @@ makeCacheMatrix <- function(x = matrix()) {
   
   ## set function to set the value
   set <- function(y) {
-    x <<- y
-    m <<- NULL
+      x <<- y
+      m <<- NULL
   }
   ## get function to retrieve the value
   get <- function() x
@@ -36,7 +45,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   
-  ## check if value exists already and if so, use cached value
+  ## if value exists already then return the cached value
   m <- x$getinverse()
   if(!is.null(m)) {
     message("getting cached data")
